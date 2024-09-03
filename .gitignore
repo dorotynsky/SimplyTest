@@ -1,0 +1,27 @@
+# Exclude the virtual environment folder
+.venv/
+
+# Exclude Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Exclude log files and temporary files
+*.log
+*.tmp
+*.bak
+
+# Exclude IDE configuration files
+.idea/
+.vscode/
+
+# Exclude build and distribution directories
+build/
+dist/
+*.egg-info/
+
+# Exclude other possible virtual environment directories
+.env
+env/
+ENV/
+venv/
