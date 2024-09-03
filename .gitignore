@@ -3,6 +3,7 @@
 
 # Exclude Python cache and compiled files
 __pycache__/
+.pytest_cache/
 *.py[cod]
 *.pyo
 
