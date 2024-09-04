@@ -1,5 +1,7 @@
 import pytest
 from selenium import webdriver
+from pages.home_page import HomePage
+from pages.cart_page import CartPage
 
 
 @pytest.fixture
@@ -26,3 +28,15 @@ def driver():
 def open_home_page(driver):
     driver.get("https://autoprojekt.simplytest.de/")
     return driver
+
+
+@pytest.fixture
+def home_page(open_home_page):
+    # Create and return the HomePage object after opening the home page
+    return HomePage(open_home_page)
+
+
+@pytest.fixture
+def cart_page(driver):
+    # Create and return the CartPage object
+    return CartPage(driver)
