@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 
 class CartPage:
@@ -22,6 +24,9 @@ class CartPage:
     def click_update_cart(self):
         return self.browser.find_element(*self.update_cart_locator).click()
 
-    def get_product_subtotal_text(self):
-        subtotal_el: WebElement = self.browser.find_element(*self.product_subtotal_locator)
-        return subtotal_el.text
+    def get_product_subtotal_text(self, timeout=10):
+        subtotal_before = self.browser.find_element(*self.product_subtotal_locator).text
+        WebDriverWait(self.browser, timeout).until(
+            lambda driver: self.browser.find_element(*self.product_subtotal_locator).text != subtotal_before
+        )
+        return self.browser.find_element(*self.product_subtotal_locator).text
