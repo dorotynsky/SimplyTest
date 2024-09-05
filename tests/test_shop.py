@@ -1,4 +1,6 @@
 import time
+from time import sleep
+
 from conftest import home_page
 
 
@@ -36,4 +38,10 @@ def test_add_item(home_page, cart_page):
         f" Actual result is: {actual_page_title_text}")
     cart_page.change_item_quantity("2")
     cart_page.click_update_cart()
-    time.sleep(10)
+    # todo test without sleep
+    sleep(1)
+    actual_subtotal = cart_page.get_product_subtotal_text()
+    expected_subtotal = "30,00 €"
+    assert actual_subtotal == expected_subtotal, (
+        f"Expected subtotal text is {expected_subtotal}."
+        f" Actual result is: {actual_subtotal}")

@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webelement import WebElement
 
 
 class CartPage:
@@ -8,6 +9,7 @@ class CartPage:
         self.page_title_locator = (By.TAG_NAME, "h1")
         self.quantity_input_locator = (By.CSS_SELECTOR, "input[type=number]")
         self.update_cart_locator = (By.XPATH, "//button[contains(., 'Update cart')]")
+        self.product_subtotal_locator = (By.CSS_SELECTOR, ".product-subtotal bdi")
 
     def get_page_title_text(self):
         return self.browser.find_element(*self.page_title_locator).text
@@ -19,3 +21,7 @@ class CartPage:
 
     def click_update_cart(self):
         return self.browser.find_element(*self.update_cart_locator).click()
+
+    def get_product_subtotal_text(self):
+        subtotal_el: WebElement = self.browser.find_element(*self.product_subtotal_locator)
+        return subtotal_el.text
