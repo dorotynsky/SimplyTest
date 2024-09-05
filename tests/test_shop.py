@@ -34,3 +34,6 @@ def test_add_item(home_page, cart_page):
     assert actual_page_title_text == expected_page_title_text, (
         f"Page title should be: {expected_page_title_text}."
         f" Actual result is: {actual_page_title_text}")
+    cart_page.change_item_quantity("2")
+    cart_page.click_update_cart()
+    time.sleep(10)
