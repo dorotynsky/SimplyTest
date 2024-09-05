@@ -27,3 +27,4 @@ env/
 ENV/
 venv/
 /allure-results/
+/tests/chrome_user_data/
