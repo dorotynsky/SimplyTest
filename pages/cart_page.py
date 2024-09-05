@@ -28,3 +28,6 @@ class CartPage:
             lambda driver: self.browser.find_element(*self.product_subtotal_locator).text != subtotal_before
         )
         return self.browser.find_element(*self.product_subtotal_locator).text
+
+    def make_screenshot(self):
+        return self.browser.get_screenshot_as_png()

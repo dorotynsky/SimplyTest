@@ -1,4 +1,3 @@
-from conftest import home_page
 import allure
 
 
@@ -54,6 +53,11 @@ def check_item_quantity_and_subtotal(cart_page):
     cart_page.click_update_cart()
 
     actual_subtotal = cart_page.get_product_subtotal_text()
+
+    # Screenshot example
+    screenshot = cart_page.make_screenshot()
+    allure.attach(screenshot, name="Check subtotal screenshot", attachment_type=allure.attachment_type.PNG)
+
     expected_subtotal = "30,00 €"
     assert actual_subtotal == expected_subtotal, (
         f"Expected subtotal text is {expected_subtotal}. "
