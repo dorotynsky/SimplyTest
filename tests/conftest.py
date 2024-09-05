@@ -2,6 +2,10 @@ import pytest
 from selenium import webdriver
 from pages.home_page import HomePage
 from pages.cart_page import CartPage
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 @pytest.fixture
