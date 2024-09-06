@@ -24,10 +24,10 @@ class HomePage:
     def get_text(self, locator):
         return self.find(locator).text
 
+    # -----------------------
+
     def get_page_title_text(self):
         return self.get_text(self.page_title_locator)
-
-    # -----------------------
 
     # ---Cart---
     def click_cart_btn(self):
